@@ -200,6 +200,15 @@ describe('App tests', () => {
     }, 1100);
   })
 
+  // User Story #22: When a session countdown reaches zero 
+  //(NOTE: timer MUST reach 00:00), and a new countdown begins,
+  // the element with the id of timer-label should display a 
+  //string indicating a break has begun.
+  it('Should change from Session to Break when countdown reaches 0', () => {
+    mounted.setState({ timeMins: 0, timeSecs: 0, timerIsRunning: true });
+    mounted.instance().onUpdateTimer();
+    expect(mounted.find("#timer-label").text()).toEqual("Break")
+  })
 
   afterEach(() => {
     wrapper.unmount()
