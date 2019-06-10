@@ -5,8 +5,18 @@ import Button from './Button/Button'
 
 import './App.css';
 
+const initialState = {
+  breakLength: 5,
+  sessionLength: 25,
+  timer: 25,
+}
+
 class App extends React.Component {
-  
+
+  constructor(props) {
+    super(props);
+    this.state = initialState;
+  }
 
   onSessionDecrement = () => {
     console.log('session decrement click');
@@ -30,6 +40,7 @@ class App extends React.Component {
 
   onResetClick = () => {
     console.log('on reset click');
+    this.setState(initialState);
   }
 
   render() {
@@ -41,7 +52,7 @@ class App extends React.Component {
           idButtonDown="break-decrement"
           idButtonUp="break-increment"
           idValue="break-length"
-          value={5}
+          value={this.state.breakLength}
           onDecrement={this.onBreakDecrement}
           onIncrement={this.onBreakIncrement}
         />
@@ -51,7 +62,7 @@ class App extends React.Component {
           idButtonDown="session-decrement"
           idButtonUp="session-increment"
           idValue="session-length"
-          value={25}
+          value={this.state.sessionLength}
           onDecrement={this.onSessionDecrement}
           onIncrement={this.onSessionIncrement}
         />
