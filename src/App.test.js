@@ -50,6 +50,11 @@ describe('App tests', () => {
   it('can see an element with a corresponding id="session-length", which by default displays a value of 25', () => {
     expect(mounted.find("#session-length").text()).toEqual("25");
   })
+
+  // User Story #7: I can see an element with a corresponding id="timer-label", that contains a string indicating a session is initialized (e.g. "Session").
+  it('can see an element with a corresponding id="timer-label", that contains a string indicating a session is initialized (e.g. "Session").', () => {
+    expect(mounted.find("#timer-label").text()).toEqual("Session");
+  });
 });
 
 
