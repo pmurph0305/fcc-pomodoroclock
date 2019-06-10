@@ -46,10 +46,36 @@ class App extends React.Component {
 
   onStartStopClick = () => {
     console.log('on start stop click');
+    window.setTimeout(this.onUpdateTimer, 1000);
   }
 
   onResetClick = () => {
     this.setState(initialState);
+  }
+
+  onDoTimer = () => {
+
+    if(this.state.timeMins >= 0 && this.state.timeSecs > 0) {
+
+    }
+  }
+  
+  onTimerFinished = () => {
+    console.log("timer is finished")
+  }
+
+  onUpdateTimer = () => {
+    if (this.state.timeSecs === 0) {
+      if (this.state.timeMins > 0) {
+        this.setState({timeSecs: 59, timeMins: this.state.timeMins-1});
+        window.setTimeout(this.onUpdateTimer, 1000);
+      } else {
+        this.onTimerFinished();
+      }
+    } else {
+      this.setState({timeSecs: this.state.timeSecs-1});
+      window.setTimeout(this.onUpdateTimer, 1000);
+    }
   }
 
   render() {

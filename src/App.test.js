@@ -155,6 +155,26 @@ describe('App tests', () => {
     mounted.find("#session-increment").simulate('click');
     expect(mounted.find("#time-left").text()).toEqual("27:00");
   })
+
+  // User Story #19: If the timer is running, the element with the id of
+  // time-left should display the remaining time in mm:ss format 
+  //(decrementing by a value of 1 and updating the display every 1000ms).
+  it("Should display the time-left properly", (done) => {
+    mounted.setState({ sessionLength: 25, timeMins: 25, timeSecs: 0 });
+    expect(mounted.find("#time-left").text()).toEqual("25:00");
+    mounted.instance().onUpdateTimer();
+    expect(mounted.find("#time-left").text()).toEqual("24:59");
+    setTimeout(()=> {
+      expect(mounted.find("#time-left").text()).toEqual("24:58");
+      done();
+    }, 1000);
+  })
 });
 
+function doTimer(callback) {
+  setTimeout(()=> {
+    console.log('times up')
+    callback && callback();
+  }, 1000)
+}
 
