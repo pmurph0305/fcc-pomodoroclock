@@ -160,28 +160,26 @@ describe('App tests', () => {
   // time-left should display the remaining time in mm:ss format 
   //(decrementing by a value of 1 and updating the display every 1000ms).
   it("Should display the time-left properly", (done) => {
-    mounted.setState({ sessionLength: 25, timeMins: 25, timeSecs: 0 });
+    mounted.setState({ sessionLength: 25, timeMins: 25, timeSecs: 0});
     expect(mounted.find("#time-left").text()).toEqual("25:00");
-    mounted.instance().onUpdateTimer();
-    expect(mounted.find("#time-left").text()).toEqual("24:59");
+    mounted.instance().onStartStopClick();
     setTimeout(()=> {
       expect(mounted.find("#time-left").text()).toEqual("24:58");
       done();
-    }, 1000);
+    }, 2100);
   })
 
   
   // User Story #20: If the timer is running and I click the element with id="start_stop", the countdown should pause.
   it("Should pause the countdown if the element with id start_stop is clicked while timer is running", (done) => {
-    mounted.setState({ sessionLength: 25, timeMins: 25, timeSecs: 0 });
+    mounted.setState({ sessionLength: 25, timeMins: 25, timeSecs: 0, timerIsRunning: true });
     // start timer...
     mounted.instance().onUpdateTimer();
     mounted.find("#start_stop").simulate('click');
     setTimeout(()=> {
-      expect(mounted.find("#time-left").text()).toEqual("24:58");
+      expect(mounted.find("#time-left").text()).toEqual("24:59");
       done();
-    }, 1000);
-    
+    }, 2100);
   })
 
 });
