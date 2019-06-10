@@ -46,6 +46,8 @@ class App extends React.Component {
           onDecrement={this.onSessionDecrement}
           onIncrement={this.onSessionIncrement}
         />
+
+        <label htmlFor="" id="timer-label">Session</label>
       </div>
     );
   }
