@@ -31,11 +31,15 @@ class App extends React.Component {
   }
 
   onSessionIncrement = () => {
-    this.setState({ sessionLength: this.state.sessionLength+1})
+    if (this.state.sessionLength < 60) {
+      this.setState({ sessionLength: this.state.sessionLength+1})
+    }
   }
 
   onBreakIncrement = () => {
-    this.setState({ breakLength: this.state.breakLength+1})
+    if (this.state.breakLength < 60) {
+      this.setState({ breakLength: this.state.breakLength+1})
+    }
   }
 
   onStartStopClick = () => {
