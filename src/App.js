@@ -31,7 +31,7 @@ class App extends React.Component {
   }
 
   onBreakIncrement = () => {
-    console.log('break increment click');
+    this.setState({ breakLength: this.state.breakLength+1})
   }
 
   onStartStopClick = () => {
