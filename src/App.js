@@ -57,8 +57,16 @@ class App extends React.Component {
     }
   }
 
+
+
   onResetClick = () => {
     this.setState(initialState);
+    if (this.audioBeep.current) {
+        // User Story #28: The audio element with id of beep must stop playing 
+  // and be rewound to the beginning when the element with the id of reset is clicked.
+      this.audioBeep.current.pause();
+      this.audioBeep.current.currentTime=0;
+    }
   }
   
   onTimerFinished = () => {
@@ -125,6 +133,8 @@ class App extends React.Component {
         <TimeDisplay timeMins={this.state.timeMins} timeSecs={this.state.timeSecs}/>
         <Button buttonId="start_stop" onClick={this.onStartStopClick} label="SS"/>
         <Button buttonId="reset" onClick={this.onResetClick} label="Reset"/>
+        {/* // User Story #27: The audio element with id="beep" 
+        //must be 1 second or longer. */}
         <audio id="beep" ref={this.audioBeep} src={process.env.PUBLIC_URL +"Beep.wav"} type="audio/wav"/>
       </div>
     );

@@ -10,7 +10,10 @@ describe('App tests', () => {
   beforeEach(() => {
     wrapper = shallow(<App/>);
     mounted = mount(<App/>);
+    // override audio element functions.
+    window.HTMLMediaElement.prototype.load = () => { /* do nothing */ };
     window.HTMLMediaElement.prototype.play = () => { /* do nothing */ };
+    window.HTMLMediaElement.prototype.pause = () => { /* do nothing */ };
   })
 
   it('renders without crashing', () => {
@@ -233,7 +236,8 @@ describe('App tests', () => {
     }, 1100)
   }) 
 
-  // User Story #27: The audio element with id="beep" must be 1 second or longer.
+  
+ 
   // User Story #26: When a countdown reaches zero
   // (NOTE: timer MUST reach 00:00), 
   //a sound indicating that time is up should play. 
@@ -250,6 +254,10 @@ describe('App tests', () => {
     expect(mockAudioPlay).toHaveBeenCalledTimes(1);
   })
 
+  // User Story #27: The audio element with id="beep" 
+  //must be 1 second or longer.
+  // User Story #28: The audio element with id of beep must stop playing 
+  // and be rewound to the beginning when the element with the id of reset is clicked.
 
   afterEach(() => {
     wrapper.unmount()
