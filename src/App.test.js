@@ -101,6 +101,14 @@ describe('App tests', () => {
     expect(mounted.state('breakLength')).toEqual(9);
     expect(mounted.find("#break-length").text()).toEqual("9"); 
   })
+
+  //User Story #13: When I click the element with the id of break-increment, the value within id="break-length" increments by a value of 1, and I can see the updated value.
+  it("Increments breaklength when break-increment is clicked, and you can see the updated value", () => {
+    mounted.setState({breakLength: 10})
+    mounted.find("#break-increment").simulate('click');
+    expect(mounted.state('breakLength')).toEqual(11);
+    expect(mounted.find("#break-length").text()).toEqual("11"); 
+  })
 });
 
 
