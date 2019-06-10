@@ -117,6 +117,14 @@ describe('App tests', () => {
     expect(mounted.state('sessionLength')).toEqual(12);
     expect(mounted.find("#session-length").text()).toEqual("12");
   })
+
+  //User Story #15: When I click the element with the id of session-increment, the value within id="session-length" increments by a value of 1, and I can see the updated value.
+  it("Increments sessionlength when session-increment is clicked, and you can see the updated value", () => {
+    mounted.setState({sessionLength: 13})
+    mounted.find("#session-increment").simulate('click');
+    expect(mounted.state('sessionLength')).toEqual(14);
+    expect(mounted.find("#session-length").text()).toEqual("14");
+  })
 });
 
 
