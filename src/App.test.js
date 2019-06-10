@@ -62,8 +62,13 @@ describe('App tests', () => {
   })
 
   // User Story #9: I can see a clickable element with a corresponding id="start_stop".
-  it('User Story #9: I can see a clickable element with a corresponding id="start_stop".', () => {
+  it('Can see a clickable element with a corresponding id="start_stop".', () => {
     expect(wrapper.find("#start_stop").length).toEqual(1);
+  })
+
+  // User Story #10: I can see a clickable element with a corresponding id="reset".
+  it('Can see a clickable element with a corresponding id="reset".', () => {
+    expect(wrapper.find("#reset").length).toEqual(1);
   })
 });
 
