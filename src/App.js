@@ -10,8 +10,8 @@ const initialState = {
   breakLength: 5,
   sessionLength: 25,
   timeLabel: "Session",
-  timeMins: 25,
-  timeSecs: 0,
+  timeMins: 0,
+  timeSecs: 1,
   timerIsRunning: false,
 }
 
