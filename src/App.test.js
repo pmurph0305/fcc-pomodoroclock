@@ -169,6 +169,21 @@ describe('App tests', () => {
       done();
     }, 1000);
   })
+
+  
+  // User Story #20: If the timer is running and I click the element with id="start_stop", the countdown should pause.
+  it("Should pause the countdown if the element with id start_stop is clicked while timer is running", (done) => {
+    mounted.setState({ sessionLength: 25, timeMins: 25, timeSecs: 0 });
+    // start timer...
+    mounted.instance().onUpdateTimer();
+    mounted.find("#start_stop").simulate('click');
+    setTimeout(()=> {
+      expect(mounted.find("#time-left").text()).toEqual("24:58");
+      done();
+    }, 1000);
+    
+  })
+
 });
 
 function doTimer(callback) {
