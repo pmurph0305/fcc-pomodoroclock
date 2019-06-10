@@ -10,6 +10,7 @@ describe('App tests', () => {
   beforeEach(() => {
     wrapper = shallow(<App/>);
     mounted = mount(<App/>);
+    window.HTMLMediaElement.prototype.play = () => { /* do nothing */ };
   })
 
   it('renders without crashing', () => {
@@ -231,6 +232,23 @@ describe('App tests', () => {
       done();
     }, 1100)
   }) 
+
+  // User Story #26: When a countdown reaches zero
+  // (NOTE: timer MUST reach 00:00), 
+  //a sound indicating that time is up should play. 
+  //This should utilize an HTML5 audio tag and have a corresponding id="beep".
+  it("Should play audio when a time reaches 0 through an HTML5 audio tag with id='beep'", () => {
+    let mockAudioPlay = jest.fn();
+    // mock the audio play function
+    window.HTMLMediaElement.prototype.play = mockAudioPlay;
+    mounted.setState({ timeMins: 0, timeSecs: 0, timerIsRunning: true, sessionLength: 13, timeLabel: "Break" });
+    expect(mounted.find("#beep").length).toEqual(1);
+    expect(mounted.find("#beep").first().is('audio')).toEqual(true);
+    mounted.instance().onUpdateTimer();
+    // make sure the audio play function is called when the timer is finished.
+    expect(mockAudioPlay).toHaveBeenCalledTimes(1);
+  })
+
 
   afterEach(() => {
     wrapper.unmount()

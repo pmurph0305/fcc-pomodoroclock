@@ -21,6 +21,7 @@ class App extends React.Component {
     super(props);
     this.state = initialState;
     this.timerTimeout = null;
+    this.audioBeep = React.createRef();
   }
 
   onSessionDecrement = () => {
@@ -61,6 +62,9 @@ class App extends React.Component {
   }
   
   onTimerFinished = () => {
+    if (this.audioBeep.current) {
+      this.audioBeep.current.play();
+    }
     if(this.state.timeLabel === "Session") {
       this.setState({timeLabel: "Break", timeSecs: 0, timeMins: this.state.breakLength}, () => {
         this.timerTimeout = setTimeout(this.onUpdateTimer, 1000);
@@ -121,6 +125,7 @@ class App extends React.Component {
         <TimeDisplay timeMins={this.state.timeMins} timeSecs={this.state.timeSecs}/>
         <Button buttonId="start_stop" onClick={this.onStartStopClick} label="SS"/>
         <Button buttonId="reset" onClick={this.onResetClick} label="Reset"/>
+        <audio id="beep" ref={this.audioBeep} src={process.env.PUBLIC_URL +"Beep.wav"} type="audio/wav"/>
       </div>
     );
   }
