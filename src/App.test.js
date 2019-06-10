@@ -233,6 +233,7 @@ describe('App tests', () => {
     }, 1100)
   }) 
 
+  // User Story #27: The audio element with id="beep" must be 1 second or longer.
   // User Story #26: When a countdown reaches zero
   // (NOTE: timer MUST reach 00:00), 
   //a sound indicating that time is up should play. 
