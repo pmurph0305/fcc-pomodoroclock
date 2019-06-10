@@ -219,6 +219,18 @@ describe('App tests', () => {
     }, 1100)
   });
 
+  // User story #24: When a break timer reaches 0, timer-label changes to Session
+  // User story #25: When a break timer reaches 0, a new session timer starts at the session length.
+  it('Should change from Break to Session when countdown reaches 0, and then start a new timer from the sessionlength', (done) => {
+    mounted.setState({ timeMins: 0, timeSecs: 0, timerIsRunning: true, sessionLength: 13, timeLabel: "Break" });
+    mounted.instance().onUpdateTimer();
+    expect(mounted.find("#timer-label").text()).toEqual("Session")
+    expect(mounted.state('timeMins')).toEqual(13);
+    setTimeout(()=> {
+      expect(mounted.find("#time-left").text()).toEqual("12:59");
+      done();
+    }, 1100)
+  }) 
 
   afterEach(() => {
     wrapper.unmount()
