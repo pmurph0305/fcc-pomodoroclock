@@ -47,14 +47,19 @@ describe('App tests', () => {
 
   // User Story #6: I can see an element with a corresponding id="session-length", which by default displays a value of 25.
 
-  it('can see an element with a corresponding id="session-length", which by default displays a value of 25', () => {
+  it('Can see an element with a corresponding id="session-length", which by default displays a value of 25', () => {
     expect(mounted.find("#session-length").text()).toEqual("25");
   })
 
   // User Story #7: I can see an element with a corresponding id="timer-label", that contains a string indicating a session is initialized (e.g. "Session").
-  it('can see an element with a corresponding id="timer-label", that contains a string indicating a session is initialized (e.g. "Session").', () => {
+  it('Can see an element with a corresponding id="timer-label", that contains a string indicating a session is initialized (e.g. "Session").', () => {
     expect(mounted.find("#timer-label").text()).toEqual("Session");
   });
+
+  //User Story #8: I can see an element with corresponding id="time-left". NOTE: Paused or running, the value in this field should always be displayed in mm:ss format (i.e. 25:00).
+  it('Can see an element with corresponding id="time-left". NOTE: Paused or running, the value in this field should always be displayed in mm:ss format (i.e. 25:00).', () => {
+    expect(mounted.find("#time-left").text()).toEqual("25:00");
+  })
 });
 
 
