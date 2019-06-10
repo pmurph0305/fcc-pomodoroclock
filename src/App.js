@@ -48,6 +48,7 @@ class App extends React.Component {
         />
 
         <label htmlFor="" id="timer-label">Session</label>
+        <p id="time-left">25:00</p>
       </div>
     );
   }
