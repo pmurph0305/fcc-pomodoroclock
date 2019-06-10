@@ -19,11 +19,15 @@ class App extends React.Component {
   }
 
   onSessionDecrement = () => {
-    this.setState({ sessionLength: this.state.sessionLength-1})
+    if (this.state.sessionLength > 1) {
+      this.setState({ sessionLength: this.state.sessionLength-1})
+    }
   }
 
   onBreakDecrement = () => {
-    this.setState({ breakLength: this.state.breakLength-1})
+    if (this.state.breakLength > 1) {
+      this.setState({ breakLength: this.state.breakLength-1})
+    }
   }
 
   onSessionIncrement = () => {
