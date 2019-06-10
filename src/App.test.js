@@ -182,12 +182,10 @@ describe('App tests', () => {
     }, 2100);
   })
 
-});
+  afterEach(() => {
+    wrapper.unmount()
+    mounted.unmount();
+  })
 
-function doTimer(callback) {
-  setTimeout(()=> {
-    console.log('times up')
-    callback && callback();
-  }, 1000)
-}
+});
 

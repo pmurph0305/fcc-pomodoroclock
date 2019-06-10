@@ -19,6 +19,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = initialState;
+    this.timerTimeout = null;
   }
 
   onSessionDecrement = () => {
@@ -48,7 +49,7 @@ class App extends React.Component {
   onStartStopClick = () => {
     if (this.state.timerIsRunning === false) {
       this.setState({timerIsRunning: true});
-      window.setTimeout(this.onUpdateTimer, 1000);
+      this.timerTimeout = setTimeout(this.onUpdateTimer, 1000);
     } else {
       this.setState({timerIsRunning: false})
     }
@@ -67,15 +68,20 @@ class App extends React.Component {
       if (this.state.timeSecs === 0) {
         if (this.state.timeMins > 0) {
           this.setState({timeSecs: 59, timeMins: this.state.timeMins-1});
-          window.setTimeout(this.onUpdateTimer, 1000);
+          this.timerTimeout = setTimeout(this.onUpdateTimer, 1000);
         } else {
           this.onTimerFinished();
         }
       } else {
         this.setState({timeSecs: this.state.timeSecs-1});
-        window.setTimeout(this.onUpdateTimer, 1000);
+        this.timerTimeout = setTimeout(this.onUpdateTimer, 1000);
       }
     }
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timerTimeout);
+    this.timerTimeout = null;
   }
 
   render() {
