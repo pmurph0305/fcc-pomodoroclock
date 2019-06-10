@@ -9,6 +9,7 @@ import './App.css';
 const initialState = {
   breakLength: 5,
   sessionLength: 25,
+  timeLabel: "Session",
   timeMins: 25,
   timeSecs: 0,
   timerIsRunning: false,
@@ -60,7 +61,9 @@ class App extends React.Component {
   }
   
   onTimerFinished = () => {
-    console.log("timer is finished")
+    if(this.state.timeLabel === "Session") {
+      this.setState({timeLabel: "Break"});
+    }
   }
 
   onUpdateTimer = () => {
@@ -108,7 +111,7 @@ class App extends React.Component {
           onIncrement={this.onSessionIncrement}
         />
       
-        <label htmlFor="" id="timer-label">Session</label>
+        <label htmlFor="" id="timer-label">{this.state.timeLabel}</label>
         <TimeDisplay timeMins={this.state.timeMins} timeSecs={this.state.timeSecs}/>
         <Button buttonId="start_stop" onClick={this.onStartStopClick} label="SS"/>
         <Button buttonId="reset" onClick={this.onResetClick} label="Reset"/>
