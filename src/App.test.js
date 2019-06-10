@@ -182,6 +182,25 @@ describe('App tests', () => {
     }, 2100);
   })
 
+  // User Story #21: If the timer is paused and I click the element 
+  //with id="start_stop", the countdown should resume running 
+  //from the point at which it was paused.
+  it("Should resume timer from the point it was paused at", (done) => {
+    mounted.setState({ sessionLength: 25, timeMins: 25, timeSecs: 0, timerIsRunning: true });
+    // start timer...
+    mounted.instance().onUpdateTimer();
+    mounted.find("#start_stop").simulate('click');
+    setTimeout(()=> {
+      expect(mounted.find("#time-left").text()).toEqual("24:59");
+      mounted.find("#start_stop").simulate('click');
+      setTimeout(()=> {
+        expect(mounted.find("#time-left").text()).toEqual("24:58");
+        done();
+      }, 1100)
+    }, 1100);
+  })
+
+
   afterEach(() => {
     wrapper.unmount()
     mounted.unmount();
