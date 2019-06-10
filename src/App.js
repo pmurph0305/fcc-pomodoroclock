@@ -1,6 +1,7 @@
 import React from 'react';
 
 import AdjustableTimes from './AdjustableLength/AdjustableTimes'
+import Button from './Button/Button'
 
 import './App.css';
 
@@ -21,6 +22,10 @@ class App extends React.Component {
 
   onBreakIncrement = () => {
     console.log('break increment click');
+  }
+
+  onStartStopClick = () => {
+    console.log('on start stop click');
   }
 
   render() {
@@ -46,9 +51,10 @@ class App extends React.Component {
           onDecrement={this.onSessionDecrement}
           onIncrement={this.onSessionIncrement}
         />
-
+      
         <label htmlFor="" id="timer-label">Session</label>
         <p id="time-left">25:00</p>
+        <Button id="start_stop" onClick={this.onStartStopClick} label="SS"/>
       </div>
     );
   }
