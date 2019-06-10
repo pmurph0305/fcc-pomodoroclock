@@ -134,6 +134,16 @@ describe('App tests', () => {
     expect(mounted.state('sessionLength')).toEqual(1);
     expect(mounted.state('breakLength')).toEqual(1);
   })
+
+  //User Story #17: I should not be able to set a session or break length to > 60.
+  it("Should not decrement session or break length to greater than 60", () => {
+    mounted.setState({breakLength: 60, sessionLength: 60})
+    mounted.find("#session-increment").simulate('click');
+    mounted.find("#break-increment").simulate('click');
+    expect(mounted.state('sessionLength')).toEqual(60);
+    expect(mounted.state('breakLength')).toEqual(60);
+  })
+
 });
 
 
