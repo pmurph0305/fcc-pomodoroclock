@@ -28,6 +28,10 @@ class App extends React.Component {
     console.log('on start stop click');
   }
 
+  onResetClick = () => {
+    console.log('on reset click');
+  }
+
   render() {
     return (
       <div className="App">
@@ -55,6 +59,7 @@ class App extends React.Component {
         <label htmlFor="" id="timer-label">Session</label>
         <p id="time-left">25:00</p>
         <Button id="start_stop" onClick={this.onStartStopClick} label="SS"/>
+        <Button id="reset" onClick={this.onResetClick} label="Reset"/>
       </div>
     );
   }
