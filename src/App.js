@@ -27,7 +27,7 @@ class App extends React.Component {
   }
 
   onSessionIncrement = () => {
-    console.log('session increment click');
+    this.setState({ sessionLength: this.state.sessionLength+1})
   }
 
   onBreakIncrement = () => {
