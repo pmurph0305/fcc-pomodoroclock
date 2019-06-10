@@ -45,6 +45,11 @@ describe('App tests', () => {
     expect(mounted.find("#break-length").text()).toEqual("5");
   })
 
+  // User Story #6: I can see an element with a corresponding id="session-length", which by default displays a value of 25.
+
+  it('can see an element with a corresponding id="session-length", which by default displays a value of 25', () => {
+    expect(mounted.find("#session-length").text()).toEqual("25");
+  })
 });
 
 
