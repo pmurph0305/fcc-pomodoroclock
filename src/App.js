@@ -2,13 +2,15 @@ import React from 'react';
 
 import AdjustableTimes from './AdjustableLength/AdjustableTimes'
 import Button from './Button/Button'
+import TimeDisplay from './TimeDisplay/TimeDisplay'
 
 import './App.css';
 
 const initialState = {
   breakLength: 5,
   sessionLength: 25,
-  timer: 25,
+  timeMins: 25,
+  timeSecs: 0,
 }
 
 class App extends React.Component {
@@ -20,7 +22,7 @@ class App extends React.Component {
 
   onSessionDecrement = () => {
     if (this.state.sessionLength > 1) {
-      this.setState({ sessionLength: this.state.sessionLength-1})
+      this.setState({ sessionLength: this.state.sessionLength-1, timeMins: this.state.sessionLength-1})
     }
   }
 
@@ -32,7 +34,7 @@ class App extends React.Component {
 
   onSessionIncrement = () => {
     if (this.state.sessionLength < 60) {
-      this.setState({ sessionLength: this.state.sessionLength+1})
+      this.setState({ sessionLength: this.state.sessionLength+1, timeMins: this.state.sessionLength+1})
     }
   }
 
@@ -75,7 +77,7 @@ class App extends React.Component {
         />
       
         <label htmlFor="" id="timer-label">Session</label>
-        <p id="time-left">25:00</p>
+        <TimeDisplay timeMins={this.state.timeMins} timeSecs={this.state.timeSecs}/>
         <Button buttonId="start_stop" onClick={this.onStartStopClick} label="SS"/>
         <Button buttonId="reset" onClick={this.onResetClick} label="Reset"/>
       </div>

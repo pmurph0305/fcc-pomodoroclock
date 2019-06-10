@@ -58,7 +58,7 @@ describe('App tests', () => {
 
   //User Story #8: I can see an element with corresponding id="time-left". NOTE: Paused or running, the value in this field should always be displayed in mm:ss format (i.e. 25:00).
   it('Can see an element with corresponding id="time-left". NOTE: Paused or running, the value in this field should always be displayed in mm:ss format (i.e. 25:00).', () => {
-    expect(wrapper.find("#time-left").text()).toEqual("25:00");
+    expect(mounted.find("#time-left").text()).toEqual("25:00");
   })
 
   // User Story #9: I can see a clickable element with a corresponding id="start_stop".
@@ -150,7 +150,9 @@ describe('App tests', () => {
   // id="session-length", even if the value has
   // been incremented or decremented from the original value of 25.
   it("Should correctly start the timer at the current session-length value when start_stop is clicked", () => {
-    mounted.setState({ sessionLength: 27 });
+    mounted.setState({ sessionLength: 25, timeMins: 25 });
+    mounted.find("#session-increment").simulate('click');
+    mounted.find("#session-increment").simulate('click');
     expect(mounted.find("#time-left").text()).toEqual("27:00");
   })
 });
