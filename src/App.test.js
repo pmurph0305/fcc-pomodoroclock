@@ -109,6 +109,14 @@ describe('App tests', () => {
     expect(mounted.state('breakLength')).toEqual(11);
     expect(mounted.find("#break-length").text()).toEqual("11"); 
   })
+
+  //User Story #14: When I click the element with the id of session-decrement, the value within id="session-length" decrements by a value of 1, and I can see the updated value.
+  it("Decrements sessionlength when session-decrement is clicked, and you can see the updated value", () => {
+    mounted.setState({sessionLength: 13})
+    mounted.find("#session-decrement").simulate('click');
+    expect(mounted.state('sessionlength')).toEqual(12);
+    expect(mounted.find("#session-length").text()).toEqual("12");
+  })
 });
 
 
