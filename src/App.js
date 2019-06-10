@@ -39,7 +39,6 @@ class App extends React.Component {
   }
 
   onResetClick = () => {
-    console.log('on reset click');
     this.setState(initialState);
   }
 

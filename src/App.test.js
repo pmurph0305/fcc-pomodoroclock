@@ -93,6 +93,14 @@ describe('App tests', () => {
     //the element with id="time-left" should reset to it's default state.
     expect(mounted.find("#time-left").text()).toEqual("25:00");
   })
+
+  //User Story #12: When I click the element with the id of break-decrement, the value within id="break-length" decrements by a value of 1, and I can see the updated value.
+  it("Decrements breaklength when break-decrement is clicked, and you can see the updated value", () => {
+    mounted.setState({breakLength: 10})
+    mounted.find("#break-decrement").simulate('click');
+    expect(mounted.state('breakLength')).toEqual(9);
+    expect(mount.find("#break-length").text()).toEqual("9"); 
+  })
 });
 
 
