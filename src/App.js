@@ -65,6 +65,10 @@ class App extends React.Component {
       this.setState({timeLabel: "Break", timeSecs: 0, timeMins: this.state.breakLength}, () => {
         this.timerTimeout = setTimeout(this.onUpdateTimer, 1000);
       });
+    } else if (this.state.timeLabel === "Break") {
+      this.setState({timeLabel: "Session", timeSecs: 0, timeMins: this.state.sessionLength}, () => {
+        this.timerTimeout = setTimeout(this.onUpdateTimer, 1000);
+      });
     }
   }
 
