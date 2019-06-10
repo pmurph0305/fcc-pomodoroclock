@@ -79,7 +79,6 @@ describe('App tests', () => {
   // should reset to it's default state
   it('Should reset values when reset button is clicked', () => {
     mounted.setState({breakLength: 10, sessionLength: 10})
-    mounted.update();
     expect(mounted.state('breakLength')).toEqual(10);
     expect(mounted.state('sessionLength')).toEqual(10);
 

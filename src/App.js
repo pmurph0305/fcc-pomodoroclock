@@ -10,8 +10,8 @@ const initialState = {
   breakLength: 5,
   sessionLength: 25,
   timeLabel: "Session",
-  timeMins: 0,
-  timeSecs: 1,
+  timeMins: 25,
+  timeSecs: 0,
   timerIsRunning: false,
 }
 
@@ -62,7 +62,9 @@ class App extends React.Component {
   
   onTimerFinished = () => {
     if(this.state.timeLabel === "Session") {
-      this.setState({timeLabel: "Break"});
+      this.setState({timeLabel: "Break", timeSecs: 0, timeMins: this.state.breakLength}, () => {
+        this.timerTimeout = setTimeout(this.onUpdateTimer, 1000);
+      });
     }
   }
 
