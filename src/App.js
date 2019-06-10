@@ -41,6 +41,8 @@ class App extends React.Component {
           label="Session Length"
           idButtonDown="session-decrement"
           idButtonUp="session-increment"
+          idValue="session-length"
+          value={25}
           onDecrement={this.onSessionDecrement}
           onIncrement={this.onSessionIncrement}
         />
