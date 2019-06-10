@@ -23,7 +23,7 @@ class App extends React.Component {
   }
 
   onBreakDecrement = () => {
-    console.log('break decrement click');
+    this.setState({ breakLength: this.state.breakLength-1})
   }
 
   onSessionIncrement = () => {

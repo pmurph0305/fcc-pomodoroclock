@@ -99,7 +99,7 @@ describe('App tests', () => {
     mounted.setState({breakLength: 10})
     mounted.find("#break-decrement").simulate('click');
     expect(mounted.state('breakLength')).toEqual(9);
-    expect(mount.find("#break-length").text()).toEqual("9"); 
+    expect(mounted.find("#break-length").text()).toEqual("9"); 
   })
 });
 
