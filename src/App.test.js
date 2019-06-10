@@ -63,12 +63,35 @@ describe('App tests', () => {
 
   // User Story #9: I can see a clickable element with a corresponding id="start_stop".
   it('Can see a clickable element with a corresponding id="start_stop".', () => {
-    expect(wrapper.find("#start_stop").length).toEqual(1);
+    expect(mounted.find("#start_stop").length).toEqual(1);
   })
 
   // User Story #10: I can see a clickable element with a corresponding id="reset".
   it('Can see a clickable element with a corresponding id="reset".', () => {
-    expect(wrapper.find("#reset").length).toEqual(1);
+    expect(mounted.find("#reset").length).toEqual(1);
+  })
+
+  // User Story #11: When I click the element with the id of reset, 
+  //any running timer should be stopped, 
+  //the value within id="break-length" should return to 5, 
+  //the value within id="session-length" should return to 25, 
+  //and the element with id="time-left"
+  // should reset to it's default state
+  it('Should reset values when reset button is clicked', () => {
+    mounted.setState({breakLength: 10, sessionLength: 10})
+    mounted.update();
+    expect(mounted.state('breakLength')).toEqual(10);
+    expect(mounted.state('sessionLength')).toEqual(10);
+
+    mounted.find("#reset").simulate("click");
+    expect(mounted.state('breakLength')).toEqual(5);
+    expect(mounted.state('sessionLength')).toEqual(25);
+    //the value within id="break-length" should return to 5
+    expect(mounted.find("#break-length").text()).toEqual("5");
+    //the value within id="session-length" should return to 25,
+    expect(mounted.find("#session-length").text()).toEqual("25"); 
+    //the element with id="time-left" should reset to it's default state.
+    expect(mounted.find("#time-left").text()).toEqual("25:00");
   })
 });
 

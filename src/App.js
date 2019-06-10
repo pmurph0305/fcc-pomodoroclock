@@ -58,8 +58,8 @@ class App extends React.Component {
       
         <label htmlFor="" id="timer-label">Session</label>
         <p id="time-left">25:00</p>
-        <Button id="start_stop" onClick={this.onStartStopClick} label="SS"/>
-        <Button id="reset" onClick={this.onResetClick} label="Reset"/>
+        <Button buttonId="start_stop" onClick={this.onStartStopClick} label="SS"/>
+        <Button buttonId="reset" onClick={this.onResetClick} label="Reset"/>
       </div>
     );
   }
