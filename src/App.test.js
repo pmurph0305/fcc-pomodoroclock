@@ -125,6 +125,15 @@ describe('App tests', () => {
     expect(mounted.state('sessionLength')).toEqual(14);
     expect(mounted.find("#session-length").text()).toEqual("14");
   })
+
+  //User Story #16: I should not be able to set a session or break length to <= 0.
+  it("Should not decrement session or break length to less than 1", () => {
+    mounted.setState({breakLength: 1, sessionLength: 1})
+    mounted.find("#session-decrement").simulate('click');
+    mounted.find("#break-decrement").simulate('click');
+    expect(mounted.state('sessionLength')).toEqual(1);
+    expect(mounted.state('breakLength')).toEqual(1);
+  })
 });
 
 
