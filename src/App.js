@@ -19,7 +19,7 @@ class App extends React.Component {
   }
 
   onSessionDecrement = () => {
-    console.log('session decrement click');
+    this.setState({ sessionLength: this.state.sessionLength-1})
   }
 
   onBreakDecrement = () => {

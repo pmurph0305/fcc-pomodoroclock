@@ -114,7 +114,7 @@ describe('App tests', () => {
   it("Decrements sessionlength when session-decrement is clicked, and you can see the updated value", () => {
     mounted.setState({sessionLength: 13})
     mounted.find("#session-decrement").simulate('click');
-    expect(mounted.state('sessionlength')).toEqual(12);
+    expect(mounted.state('sessionLength')).toEqual(12);
     expect(mounted.find("#session-length").text()).toEqual("12");
   })
 });
