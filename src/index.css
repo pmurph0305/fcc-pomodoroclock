@@ -5,6 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(166, 210, 224);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 code {
@@ -12,8 +17,3 @@ code {
     monospace;
 }
 
-/* root takes up whole screen. */
-html, body, #root {
-  height: 100%;
-  width: 100%;
-}

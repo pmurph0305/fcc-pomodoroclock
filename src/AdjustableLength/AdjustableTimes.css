@@ -25,6 +25,7 @@
 }
 
 .adjustable-times-button {
+  padding: 1em;
   border: 0px solid;
   border-radius: 5px;
   width: fit-content;
