@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/fcc-pomodoroclock/static/css/main.647a6977.chunk.css",
-    "main.js": "/fcc-pomodoroclock/static/js/main.94d90768.chunk.js",
-    "main.js.map": "/fcc-pomodoroclock/static/js/main.94d90768.chunk.js.map",
+    "main.css": "/fcc-pomodoroclock/static/css/main.a497c792.chunk.css",
+    "main.js": "/fcc-pomodoroclock/static/js/main.97a24156.chunk.js",
+    "main.js.map": "/fcc-pomodoroclock/static/js/main.97a24156.chunk.js.map",
     "runtime~main.js": "/fcc-pomodoroclock/static/js/runtime~main.a6bee6bc.js",
     "runtime~main.js.map": "/fcc-pomodoroclock/static/js/runtime~main.a6bee6bc.js.map",
     "static/js/2.65aa1cca.chunk.js": "/fcc-pomodoroclock/static/js/2.65aa1cca.chunk.js",
     "static/js/2.65aa1cca.chunk.js.map": "/fcc-pomodoroclock/static/js/2.65aa1cca.chunk.js.map",
     "index.html": "/fcc-pomodoroclock/index.html",
-    "precache-manifest.998e28594dc65b39f1858d0672b6fd48.js": "/fcc-pomodoroclock/precache-manifest.998e28594dc65b39f1858d0672b6fd48.js",
+    "precache-manifest.7f8bc7db8e75ea447efd914067432a44.js": "/fcc-pomodoroclock/precache-manifest.7f8bc7db8e75ea447efd914067432a44.js",
     "service-worker.js": "/fcc-pomodoroclock/service-worker.js",
-    "static/css/main.647a6977.chunk.css.map": "/fcc-pomodoroclock/static/css/main.647a6977.chunk.css.map"
+    "static/css/main.a497c792.chunk.css.map": "/fcc-pomodoroclock/static/css/main.a497c792.chunk.css.map"
   }
 }
