@@ -108,34 +108,40 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <AdjustableTimes 
-          idLabel="break-label"
-          label="Break Length"
-          idButtonDown="break-decrement"
-          idButtonUp="break-increment"
-          idValue="break-length"
-          value={this.state.breakLength}
-          onDecrement={this.onBreakDecrement}
-          onIncrement={this.onBreakIncrement}
-        />
-        <AdjustableTimes 
-          idLabel="session-label"
-          label="Session Length"
-          idButtonDown="session-decrement"
-          idButtonUp="session-increment"
-          idValue="session-length"
-          value={this.state.sessionLength}
-          onDecrement={this.onSessionDecrement}
-          onIncrement={this.onSessionIncrement}
-        />
-      
-        <label htmlFor="" id="timer-label">{this.state.timeLabel}</label>
-        <TimeDisplay timeMins={this.state.timeMins} timeSecs={this.state.timeSecs}/>
-        <Button buttonId="start_stop" onClick={this.onStartStopClick} label="SS"/>
-        <Button buttonId="reset" onClick={this.onResetClick} label="Reset"/>
-        {/* // User Story #27: The audio element with id="beep" 
-        //must be 1 second or longer. */}
-        <audio id="beep" ref={this.audioBeep} src={process.env.PUBLIC_URL +"Beep.wav"} type="audio/wav"/>
+        <h1>Pomodoro Clock</h1>
+        <div className="app-session-break-container">
+          <AdjustableTimes 
+            idLabel="break-label"
+            label="Break Length"
+            idButtonDown="break-decrement"
+            idButtonUp="break-increment"
+            idValue="break-length"
+            value={this.state.breakLength}
+            onDecrement={this.onBreakDecrement}
+            onIncrement={this.onBreakIncrement}
+          />
+          <AdjustableTimes 
+            idLabel="session-label"
+            label="Session Length"
+            idButtonDown="session-decrement"
+            idButtonUp="session-increment"
+            idValue="session-length"
+            value={this.state.sessionLength}
+            onDecrement={this.onSessionDecrement}
+            onIncrement={this.onSessionIncrement}
+          />
+        </div>
+        <div className="timer-container">
+          <p className="timer-label" id="timer-label">{this.state.timeLabel}</p>
+          <TimeDisplay timeMins={this.state.timeMins} timeSecs={this.state.timeSecs}/>
+          <div className="timer-button-container">
+            <Button buttonId="start_stop" onClick={this.onStartStopClick} faIconName={this.state.timerIsRunning ? "fa-pause" : "fa-play"}/>
+            <Button buttonId="reset" onClick={this.onResetClick} faIconName="fa-step-backward"/>
+          </div>
+          {/* // User Story #27: The audio element with id="beep" 
+          //must be 1 second or longer. */}
+          <audio id="beep" ref={this.audioBeep} src={process.env.PUBLIC_URL +"Beep.wav"} type="audio/wav"/>
+        </div>
       </div>
     );
   }

@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Button = ({buttonId, label, onClick}) => {
+import './Button.css'
+
+const Button = ({buttonId, label, onClick, faIconName}) => {
 
   return (
-    <button id={buttonId} onClick={onClick}>{label}</button>
+    <button className="pomo-button" id={buttonId} onClick={onClick}>{label}<i className={"fa "+faIconName}></i></button>
   )
 
 }
