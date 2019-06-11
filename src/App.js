@@ -140,7 +140,7 @@ class App extends React.Component {
           </div>
           {/* // User Story #27: The audio element with id="beep" 
           //must be 1 second or longer. */}
-          <audio id="beep" ref={this.audioBeep} src={process.env.PUBLIC_URL +"Beep.wav"} type="audio/wav"/>
+          <audio id="beep" ref={this.audioBeep} src={process.env.PUBLIC_URL +"/Sound/Beep.wav"} type="audio/wav"/>
         </div>
       </div>
     );

@@ -3,6 +3,7 @@
   height: 100%;
   background-color: rgb(166, 210, 224);
   font-family: Orbitron, "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 2em;
   display: flex;
   flex-direction: column;
   justify-content: center;
